@@ -1,6 +1,7 @@
 const express = require('express')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
+const bodyParser = require('body-parser')
 const app = express()
 
 // Import and Set Nuxt.js options
@@ -21,9 +22,15 @@ async function start () {
     await nuxt.ready()
   }
 
+  // parse application/x-www-form-urlencoded
+  app.use(bodyParser.urlencoded({ extended: false }))
+
+  // parse application/json
+  app.use(bodyParser.json())
+  
   // Create routes
   app.post('/api/users', function(req, res){
-    console.log('post received')
+    console.log(req.body)
   });
 
   // Give nuxt middleware to express
