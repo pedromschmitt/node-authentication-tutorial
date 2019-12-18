@@ -21,6 +21,11 @@ async function start () {
     await nuxt.ready()
   }
 
+  // Create routes
+  app.post('/api/users', function(req, res){
+    console.log('post received')
+  });
+
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
