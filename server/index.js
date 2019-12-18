@@ -30,7 +30,14 @@ async function start () {
   app.use(bodyParser.json())
   
   // Create routes
-  app.post('/api/users', [check('email').isEmail()], (req, res) => {
+  app.post('/api/users', [
+      check('email')
+        .isEmail()
+        .normalizeEmail(),
+      check('password')
+      .isLength({ min: 6 })
+    ],
+    (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
       console.log(errors)
