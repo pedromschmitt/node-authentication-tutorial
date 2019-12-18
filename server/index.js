@@ -30,8 +30,14 @@ async function start () {
   app.use(bodyParser.json())
   
   // Create routes
-  app.post('/api/users', function(req, res){
+  app.post('/api/users', [check('email').isEmail()], (req, res) => {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      console.log(errors)
+      return res.status(422).json({ errors: errors.array() })
+    }
     console.log(req.body)
+    // Database code will go below
   });
 
   // Give nuxt middleware to express
