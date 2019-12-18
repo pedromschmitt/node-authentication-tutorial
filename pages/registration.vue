@@ -56,24 +56,24 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       email: '',
-      password: '',
+      password: ''
     }
   },
   methods: {
-    submitForm() {
+    submitForm () {
       // this send a post to the /api/users, que sera processado pelo express no /server/index.js
       this.$axios
-      .post('/api/users', {
-        email: this.email,
-        password: this.password
-      }).then(response => {
-        console.log(response)
-      }).catch(error => {
-        console.log(error)
-      })
+        .post('/api/users', {
+          email: this.email,
+          password: this.password
+        }).then((response) => {
+          console.log(response)
+        }).catch((error) => {
+          console.log(error)
+        })
     }
   }
 }
