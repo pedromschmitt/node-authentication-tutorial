@@ -34,12 +34,11 @@ async function start () {
   
   // Create routes
   app.post('/api/users', [
-      check('email')
-        .isEmail()
-        .normalizeEmail(),
-      check('password')
-      .isLength({ min: 6 })
-    ],
+    check('email')
+      .isEmail(),
+    check('password')
+    .isLength({ min: 6 })
+  ],
     (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
