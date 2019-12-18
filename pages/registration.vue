@@ -64,14 +64,15 @@ export default {
   },
   methods: {
     submitForm() {
+      // this send a post to the /api/users, que sera processado pelo express no /server/index.js
       this.$axios
       .post('/api/users', {
         email: this.email,
         password: this.password
       }).then(response => {
-        console.log(response);
+        console.log(response)
       }).catch(error => {
-        console.log(error);
+        console.log(error)
       })
     }
   }
