@@ -1,4 +1,4 @@
-# seguros-viagem-nuxt-express
+# Authentication-nuxt-express
 
 > My polished Nuxt.js project
 
