@@ -17,7 +17,8 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
         unique: true
-      }
+      },
+      password: Sequelize.STRING
     })
   },
 
@@ -27,7 +28,8 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      return queryInterface.dropTable('users');
     */
+    return queryInterface.dropTable('users')
+
   }
 };
